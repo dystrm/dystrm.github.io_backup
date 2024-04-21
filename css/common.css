@@ -1445,7 +1445,7 @@ footer .footer-inner p a {
   opacity: 0.8;
 }
 .popup.type04 .popup-wrap {
-  max-width: 600px;
+  max-width: 500px;
 }
 .popup.type04 .popup-wrap .popup-box {
   width: 100%;
@@ -1721,4 +1721,4 @@ footer .footer-inner p a {
   .popup.type04 .popup-wrap {
     max-width: 360px;
   }
-}/*# sourceMappingURL=common.css.map */
+}

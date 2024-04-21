@@ -354,6 +354,8 @@
                 .pop-contents {
                     width: 95%;
                     margin: 0 auto;
+                    max-height: 600px;
+                    overflow-y: auto;
 
                     img {
                         width: 100%;
@@ -484,6 +486,7 @@
         &.type04 {
             .popup-wrap {
                 max-width: 500px;
+                max-height: 400px;
             }
         }
     }

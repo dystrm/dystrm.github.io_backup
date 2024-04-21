@@ -1480,6 +1480,8 @@ footer .footer-inner p a {
 .popup.type04 .popup-wrap .popup-box .pop-contents {
   width: 95%;
   margin: 0 auto;
+  max-height: 600px;
+  overflow-y: auto;
 }
 .popup.type04 .popup-wrap .popup-box .pop-contents img {
   width: 100%;
@@ -1563,6 +1565,7 @@ footer .footer-inner p a {
   }
   .popup.type04 .popup-wrap {
     max-width: 500px;
+    max-height: 400px;
   }
 }
 @media all and (max-width: 480px) {

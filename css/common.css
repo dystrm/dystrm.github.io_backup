@@ -1594,6 +1594,8 @@ footer .footer-inner p a {
   }
   .popup.type04 .popup-wrap {
     max-width: 500px;
+  }
+  .popup.type04 .popup-wrap .pop-contents {
     max-height: 400px;
   }
 }
@@ -1609,6 +1611,9 @@ footer .footer-inner p a {
   }
   .popup.type04 .popup-wrap {
     max-width: 400px;
+  }
+  .popup.type04 .popup-wrap .pop-contents {
+    max-height: 300px;
   }
 }
 @media all and (max-width: 430px) {

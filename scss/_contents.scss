@@ -487,7 +487,9 @@
         &.type04 {
             .popup-wrap {
                 max-width: 500px;
-                max-height: 400px;
+                .pop-contents {
+                    max-height: 400px;
+                }
             }
         }
     }
@@ -512,6 +514,9 @@
         &.type04 {
             .popup-wrap {
                 max-width: 400px;
+                .pop-contents {
+                    max-height: 300px;
+                }
             }
         }
     }

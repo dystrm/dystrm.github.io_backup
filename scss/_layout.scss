@@ -666,6 +666,12 @@ footer {
                     }
                 }
 
+                &.cheering {
+                    &::before {
+                        @include ico_cheering(2.6rem, 2.6rem);
+                    }
+                }
+
                 &::before {
                     content: '';
                     display: inline-block;

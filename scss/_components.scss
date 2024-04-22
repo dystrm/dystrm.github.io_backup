@@ -278,3 +278,8 @@ $font-name : 'Pretendard Variable';
     width: $width;
     height: $height;
 }
+@mixin ico_cheering($width, $height) {
+    @include icon($name:'cheering', $format:"png");
+    width: $width;
+    height: $height;
+}

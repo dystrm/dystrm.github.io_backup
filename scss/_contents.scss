@@ -356,6 +356,7 @@
                     margin: 0 auto;
                     max-height: 600px;
                     overflow-y: auto;
+                    @include scroll;
 
                     img {
                         width: 100%;

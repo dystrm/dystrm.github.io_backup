@@ -199,6 +199,24 @@ footer {
                         }
                     }
 
+                    &.disabled {
+                        i {
+                            background-color: $bg-gray !important;
+                            color: $font-gray !important;
+                            cursor: default;
+                        }
+
+                        .txt p {
+                            color: $font-gray !important;
+                        }
+
+                        &:hover {
+                            i {
+                                transform: scale(1);
+                            }
+                        }
+                    }
+
                     i {
                         transition: all 0.5s;
                         display: inline-block;
@@ -598,6 +616,13 @@ footer {
                         @include ico_kakao(2.6rem, 2.6rem);
                     }
                 }
+
+                &.youtube {
+                    &::before {
+                        @include ico_youtube(2.6rem, 2.6rem);
+                    }
+                }
+
 
                 &.mubeat {
                     &::before {

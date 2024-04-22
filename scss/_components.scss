@@ -216,6 +216,12 @@ $font-name : 'Pretendard Variable';
     height: $height;
 }
 
+@mixin ico_youtube($width, $height) {
+    @include icon($name:'ico_youtube', $format:"png");
+    width: $width;
+    height: $height;
+}
+
 @mixin ico_kakao($width, $height) {
     @include icon($name:'ico_kakao', $format:"png");
     width: $width;

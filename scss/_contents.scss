@@ -517,6 +517,17 @@
     }
 }
 
+@media all and (max-width: 430px) {
+    .hashtag-box {
+        flex-wrap: wrap;
+        button {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+}
+
 @media all and (max-width:375px) {
     #wrap {
         .main {

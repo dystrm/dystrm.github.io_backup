@@ -292,6 +292,20 @@
                                 }
                             }
                         }
+
+                        &.flo {
+                            &::before {
+                                @include ico_flo(2.6rem, 2.6rem);
+                                //border: 1px solid #8552e3;
+                            }
+
+                            & + .btn-box {
+                                li {
+                                    border: 1px solid #5254e3;
+                                    color: #5254e3;
+                                }
+                            }
+                        }
                     }
 
                     .btn-box {

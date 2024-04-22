@@ -1425,6 +1425,16 @@ footer .footer-inner p a {
   border: 1px solid #8552e3;
   color: #8552e3;
 }
+.popup.type03 .popup-wrap .popup-box .pop-contents p.flo::before {
+  background: url("../images/icon/ico_flo.png") no-repeat center;
+  background-size: 100%;
+  width: 2.6rem;
+  height: 2.6rem;
+}
+.popup.type03 .popup-wrap .popup-box .pop-contents p.flo + .btn-box li {
+  border: 1px solid #5254e3;
+  color: #5254e3;
+}
 .popup.type03 .popup-wrap .popup-box .pop-contents .btn-box {
   margin: 1rem auto 2.5rem;
   display: -webkit-box;

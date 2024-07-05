@@ -138,6 +138,57 @@ footer {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    
+
+    .notice {
+        position: relative;
+        max-width: 98.0rem;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 100vh;
+        overflow: hidden;
+
+        .center {
+            @include centerXY;
+
+            img {
+                width: 8rem;
+                height: auto;
+                object-fit: contain;
+            }
+
+            h5 {
+                color: $black;
+                @include ftSize(title);
+                line-height: 2.8rem;
+                margin-top: 2.0rem;
+            }
+        }
+
+        .info {
+            @include centerX;
+            bottom: 0;
+            padding: 5.0rem 0;
+            text-align: center;
+            background: $bg-gray;
+            border-top: 1px solid $border-color;
+        
+            .footer-inner {
+                p {
+                    @include ftRegular;
+                    @include ftSize(1.2rem);
+                    color: $blue-gray;
+                    padding: 0.4rem 0;
+        
+                    a {
+                        color: $blue-gray;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
 
     .main {
         max-width: 98.0rem;

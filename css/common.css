@@ -306,57 +306,6 @@ footer .footer-inner p a {
   height: 100%;
   margin: 0 auto;
 }
-#wrap .notice {
-  position: relative;
-  max-width: 98rem;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  height: 100vh;
-  overflow: hidden;
-}
-#wrap .notice .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-#wrap .notice .center img {
-  width: 8rem;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-#wrap .notice .center h5 {
-  color: #1f1f1f;
-  font-size: 1.8rem;
-  word-break: keep-all;
-  line-height: 2.8rem;
-  margin-top: 2rem;
-}
-#wrap .notice .info {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  bottom: 0;
-  padding: 5rem 0;
-  text-align: center;
-  background: #f5f5f9;
-  border-top: 1px solid #ebebeb;
-}
-#wrap .notice .info .footer-inner p {
-  font-family: "Pretendard Variable";
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: #696e82;
-  padding: 0.4rem 0;
-}
-#wrap .notice .info .footer-inner p a {
-  color: #696e82;
-  text-decoration: none;
-}
 #wrap .main {
   max-width: 98rem;
   position: relative;

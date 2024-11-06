@@ -62,8 +62,8 @@
 
                 button {
                     @include button(8.0rem, 4.0rem, 0.4rem);
-                    border: 1px solid $main-color;
-                    background: $main-color;
+                    border: 1px solid $black;
+                    background: $black;
                     color: $white;
                     @include ftMedium;
                     @include ftSize(regular);
@@ -94,7 +94,7 @@
                         position: absolute;
                         top: 0;
                         right: 2.0rem;
-                        @include ico_close(1.5rem, 1.5rem);
+                        @include ico_close(1.5rem, 1.5rem, $black);
                         @include ftSize(0);
                     }
                 }
@@ -111,18 +111,17 @@
                             cursor: pointer;
                             @include ftSize(regular);
                             @include ftRegular;
-                            border: 1px solid $main-color;
+                            border: 1px solid rgba($blue-gray,0.5);
                             padding: 1.0rem 1.4rem;
                             border-radius: 2.6rem;
-                            color: $main-color;
+                            color: $black;
                             background: $white;
                             list-style: none;
                             width: 28%;
                             text-align: center;
 
                             &:hover {
-                                background: $main-color;
-                                color: $white;
+                                background: rgba($blue-gray,0.2);
                             }
 
                             &::before {
@@ -207,7 +206,7 @@
                         position: absolute;
                         top: 0;
                         right: 2.0rem;
-                        @include ico_close(1.5rem, 1.5rem);
+                        @include ico_close(1.5rem, 1.5rem, $black);
                         @include ftSize(0);
                     }
                 }
@@ -360,7 +359,7 @@
                         position: absolute;
                         top: 0;
                         right: 2.0rem;
-                        @include ico_close(1.5rem, 1.5rem);
+                        @include ico_close(1.5rem, 1.5rem, $black);
                         @include ftSize(0);
                     }
                 }
@@ -381,128 +380,193 @@
     }
 }
 
-@media only screen and (max-width: 960px) {
-    header {
-        .header-inner {
-            padding: 0 2.0rem;
-        }
-    }
-
-    #wrap {
-        .main {
-            padding: 8.0rem 2.0rem 3.0rem;
-
-            .twitter-wrap {
-                max-height: 696px;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 799px) {
-    html {
-        font-size: 60% !important;
-    }
-
-    #wrap {
-        .main {
-            padding: 8.0rem 2.0rem;
-
-            .oneclick-wrap {
-                .btn-wrap {
-                    .btn {
-                        padding: 1.2rem 1.0rem;
-                    }
-                }
-            }
-
-            .twitter-wrap {
-                max-height: 631px;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 1024px) {
     html {
         font-size: 57.5% !important;
     }
+    .wrap {
+        .contents {
+            .inner {
+                padding: 0 2rem;
+                .left {
+                    width: 30%;
+                    gap: 1.4rem;
+                    .music_box {
+                        padding: 2rem;
+                        gap: 3rem;
+                    }
 
-    #wrap {
-        .main {
-            .section-inner {
-                padding-top: 3.0rem;
+                    .btn_box {
+                        button {
+                            @include ftSize(regular);
+                        }
+                    }
 
-                &.flex {
-                    flex-wrap: wrap;
+                    .copyright {
+                        p {
+                            @include ftSize(1.0rem);
+                        }
+                    }
                 }
-            }
-
-            .flex-column {
-                &+.flex-column {
-                    margin-top: 2.0rem;
-                }
-
-                width: 100%;
-
-                .twitter-wrap {
-                    height: 400px;
+                .mo_bottom {
+                    display: none;
                 }
             }
         }
+        &.sub {
+            padding: 0 2rem;
+        }
+    }
+}
 
-        .sub {
-            .section-inner {
-                padding-top: 3.0rem;
-            }
+@media only screen and (max-width: 960px) {
+    html {
+        font-size: 57.5% !important;
+    }
+    .wrap {
+        .contents {
+            .inner {
+                padding: 0 2rem;
+                .left {
+                    width: 40%;
+                    gap: 1.4rem;
+                    .music_box {
+                        padding: 2rem;
+                        gap: 3rem;
+                    }
 
-            .section-title {
-                margin-bottom: 1.0rem !important;
+                    .btn_box {
+                        button {
+                            @include ftSize(regular);
+                        }
+                    }
 
-                h3 {
-                    font-size: 2.0rem !important;
+                    .copyright {
+                        p {
+                            @include ftSize(1.0rem);
+                        }
+                    }
                 }
-            }
+                .right {
+                    width: calc(60% - 4rem);
 
-            padding: 8.0rem 2.0rem;
-
-            .tab-menu {
-                gap: 1.0rem;
-
-                li {
-                    font-size: 1.2rem;
-                    padding: 0.8rem 1.4rem;
-                }
-            }
-
-            .tab-box {
-                .guide-tab {
-                    li {
-                        font-size: 1.2rem;
-                        padding: 1.5rem;
+                    .strm_list {
+                        ul {
+                            li {
+                                padding: 1.3rem 1.6rem;
+                                p {
+                                    @include ftSize(regular);
+                                }
+                                div {
+                                    gap: 1.0rem;
+                                }
+                                &::before {
+                                    margin-right: 1rem;
+                                }
+                                &:first-of-type {
+                                    p {
+                                        @include ftSize(large);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
-                .guide-box {
-                    width: 100%;
-                    padding: 2.0rem 0;
+                .mo_bottom {
+                    display: none;
                 }
-
-                .img-box {
-                    width: 100%;
-                    padding: 2.0rem 0;
-                }
-
             }
         }
     }
+}
 
-    .popup {
-        &.type04 {
-            .popup-wrap {
-                max-width: 500px;
-                .pop-contents {
-                    max-height: 400px;
+@media only screen and (max-width: 679px) {
+    html {
+        font-size: 57.5% !important;
+    }
+    .wrap {
+        .contents {
+            .inner {
+                @include flex(center, center, 2.0rem, column);
+                .left {
+                    width: 100%;
+                    height: auto;
+
+                    .music_box, .small_btn_box, .copyright {
+                        display: none;
+                    }
+                }
+                .right {
+                    width: 100%;
+                    height: auto;
+                    .strm_list {
+                        overflow-y: auto;
+
+                        ul {
+                            li {
+                                div {
+                                    gap: 2.0rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mo_bottom {
+                    padding: 0 3.0rem;
+                    @include flex(center, center, 2.0rem, column);
+                    width: 100%;
+
+                    .small_btn_box {
+                        width: 100%;
+                        @include flex(center, center, 2.0rem);
+        
+                        a {
+                            border-radius: 50%;
+                            width: 4rem;
+                            height: 4rem;
+                            font-size: 0;
+                            transition: all 0.3s ease-in;
+                            @include flex(center, center);
+                            &:hover {
+                                background: rgba($white, 0.2);
+                            }
+                            &::before {
+                                @include content;
+                            }
+        
+                            &.btn_twitter {
+                                &::before {
+                                    @include ico_twitter(2rem, 2rem, $black);
+                                }
+                            }
+        
+                            &.btn_youtube {
+                                &::before {
+                                    @include ico_youtube(2rem, 2rem, $black);
+                                }
+                            }
+                        }
+                    }
+        
+                    .copyright {
+                        text-align: center;
+                        p {
+                            @include ftRegular;
+                            @include ftSize(small);
+                            color: rgba($black, 1.0);
+        
+                            & + p {
+                                margin-top: 0.6rem;
+                            }
+        
+                            a {
+                                @include ftRegular;
+                                @include ftSize(small);
+                                color: rgba($black, 0.8);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -536,139 +600,7 @@
     }
 }
 
-@media all and (max-width: 430px) {
-    .hashtag-box {
-        flex-wrap: wrap;
-        button {
-            width: 100%;
-            text-align: center;
-            justify-content: center;
-        }
-    }
-}
-
 @media all and (max-width:375px) {
-    #wrap {
-        .main {
-            .flex {
-                .oneclick-wrap {
-                    .btn-wrap {
-                        flex-wrap: wrap;
-
-                        .ios-wrap {
-                            width: 100%;
-                            border-right: 0;
-                            padding-right: 0;
-
-                            .container {
-                                @include flex(flex-start, space-between);
-
-                                .btn {
-                                    border-top: 0;
-                                    padding: 0;
-                                    @include flex(center, center, 1.0rem, column);
-
-                                    .txt {
-                                        align-items: center;
-                                    }
-
-                                    i {
-                                        margin-right: 0;
-                                    }
-
-                                    &+.btn {
-                                        padding-top: 0;
-                                    }
-                                }
-                            }
-                        }
-
-                        .other-wrap {
-                            margin-top: 2.0rem;
-                            width: 100%;
-                            padding-left: 0;
-
-                            .container {
-                                @include flex(center, space-between, 1.0rem 0);
-                                flex-wrap: wrap;
-                            }
-
-                            .btn-type02 {
-                                width: 49%;
-                                justify-content: center;
-
-                                i {
-                                    width: auto;
-                                    height: auto;
-                                    margin-right: 1.0rem;
-                                }
-
-                                &+.btn-type02 {
-                                    margin-top: 0;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .youtube-wrap {
-                    .youtube-info-box {
-                        .flex-wrap {
-                            div {
-                                @include flex(flex-start, center, 1.0rem, column);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .sub {
-            .section-inner {
-                padding-top: 3.0rem;
-            }
-
-            .section-title {
-                margin-bottom: 1.0rem !important;
-
-                h3 {
-                    font-size: 2.0rem !important;
-                }
-            }
-
-            padding: 8.0rem 2.0rem;
-
-            .tab-menu {
-                gap: 1.0rem;
-
-                li {
-                    font-size: 1.2rem;
-                    padding: 0.8rem 1.4rem;
-                }
-            }
-
-            .tab-box {
-                .guide-tab {
-                    li {
-                        font-size: 1.2rem;
-                        padding: 1.5rem;
-                    }
-                }
-
-                .guide-box {
-                    width: 100%;
-                    padding: 2.0rem 0;
-                }
-
-                .img-box {
-                    width: 100%;
-                    padding: 2.0rem 0;
-                }
-
-            }
-        }
-    }
-
     .popup {
         &.type04 {
             .popup-wrap {
@@ -676,21 +608,37 @@
             }
         }
     }
+    .wrap {
+        .contents {
+            .inner {
+                .right {
+                    .strm_list {
+                        ul {
+                            li {
+                                flex-wrap: wrap;
+                                gap: 1.4rem;
+                                div {
+                                    position: relative;
+                                    transform: none;
+                                    right: auto;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-
-.notice_pop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    width: 100%;
-    height: 100%;
-    background: $white;
-    @include flex(center, center);
-
-    img {
-        width: 400px;
-        height: 400px;
+@media all and (max-width:320px) {
+    .popup {
+        &.type04 {
+            .popup-wrap {
+                max-width: 300px;
+            }
+        }
     }
 }

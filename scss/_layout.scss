@@ -1,7 +1,11 @@
 @charset 'utf-8';
 
-body {
-    background: $bg-gray;
+.inner {
+    position: relative;
+    width: 100%;
+    max-width: 140rem;
+    height: 100%;
+    margin: 0 auto;
 }
 
 header {
@@ -11,16 +15,11 @@ header {
     z-index: 100;
     width: 100%;
     height: 8.0rem;
-    background: rgba($white, 1);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 4px;
+    background: rgba($white, 0.15);
 
-    .header-inner {
-        position: relative;
-        width: 100%;
-        max-width: 98.0rem;
-        height: 100%;
-        margin: 0 auto;
+    .inner {
         @include flex(center, space-between);
+        padding: 0 20px;
 
         .logo {
             display: block;
@@ -39,16 +38,17 @@ header {
                         @include ftSize(regular);
                         color: $blue-gray;
                         padding-bottom: 0.2rem;
-                        border-bottom: 1px solid $white;
                         transition: all 0.5s ease-in-out;
 
                         &:hover {
-                            color: $main-color;
-                            border-bottom: 1px solid $main-color;
+                            color: $black;
+                            border-bottom: 1px solid $black;
                         }
 
                         &.active {
-                            color: $main-color;
+                            @include ftBold;
+                            color: $black;
+                            border-bottom: 1px solid $black;
                         }
                     }
                 }
@@ -57,7 +57,7 @@ header {
 
         .menu-btn {
             display: none;
-            @include ico_menu(3.0rem, 1.7rem);
+            @include ico_menu(3.0rem, 1.7rem, $black);
             @include ftSize(0);
         }
 
@@ -111,638 +111,479 @@ header {
     }
 }
 
-footer {
-    position: relative;
-    padding: 5.0rem 0;
-    text-align: center;
-    background: $bg-gray;
-    border-top: 1px solid $border-color;
-
-    .footer-inner {
-        p {
-            @include ftRegular;
-            @include ftSize(1.2rem);
-            color: $blue-gray;
-            padding: 0.4rem 0;
-
-            a {
-                color: $blue-gray;
-                text-decoration: none;
-            }
-        }
-    }
-}
-
-#wrap {
-    position: relative;
+.wrap {
     width: 100%;
-    height: 100%;
-    margin: 0 auto;
+    height: 100vh;
+    background: url(../images/bg.jpeg) no-repeat center;
+    background-size: cover;
 
-    .main {
-        max-width: 98.0rem;
-        position: relative;
+    .contents {
+        padding-top: 8rem;
         width: 100%;
-        margin: 0 auto;
-        padding: 8.0rem 0;
+        height: 100vh;
+        @include flex(center, center);
 
-        .section-inner {
-            padding-top: 5.0rem;
-            margin: 0 auto;
-
-            &.flex {
-                @include flex(flex-start, space-between);
-            }
+        .inner {
+            @include flex(center, space-between);
+            height: calc(100vh - 8rem - 8rem);
         }
 
-        .flex-column {
-            width: 49%;
-            @include flex(flex-start, flex-start, 2.0rem, column);
-        }
-
-        .oneclick-wrap {
-            width: 100%;
-            padding: 2.4rem;
-            background: $white;
-            border-radius: 0.5rem;
-            box-shadow: $section-shadow;
-            
-            h3 {
-                @include ftMedium;
-                @include ftSize(title);
-                color: $h3-color;
-            }
-
-            .btn-wrap {
-                margin-top: 2.0rem;
-                @include flex(flex-start, space-between);
-                
-                h4 {
-                    @include ftRegular;
-                    @include ftSize(regular);
-                    color: $blue-gray;
-                    margin-bottom: 1.5rem;
-                }
-
-                .btn {
-                    background: $white;
-                    padding: 1.2rem 2.0rem;
-                    @include ftMedium;
-                    @include ftSize(regular);
-                    color: $black;
-                    @include flex(center, flex-start);
-                    cursor: pointer;
-
-                    &:hover {
-                        i {
-                            transform: scale(1.2);
-                        }
-                    }
-
-                    &.disabled {
-                        i {
-                            background-color: $bg-gray !important;
-                            color: $font-gray !important;
-                            cursor: default;
-                        }
-
-                        .txt p {
-                            color: $font-gray !important;
-                        }
-
-                        &:hover {
-                            i {
-                                transform: scale(1);
-                            }
-                        }
-                    }
-
-                    i {
-                        transition: all 0.5s;
-                        display: inline-block;
-                        width: 5.0rem;
-                        height: 4.0rem;
-                        @include ftBold;
-                        @include ftSize(regular);
-                        font-style: normal;
-                        text-align: center;
-                        vertical-align: middle;
-                        line-height: 4.0rem;
-                        border-radius: 0.5rem;
-                        margin-right: 1.2rem;
-
-                        &.mp3 {
-                            color: $point-color1;
-                            background: $point-color2;
-                        }
-
-                        &.flac {
-                            background-color: #d7f5fc;
-                            color: #03c3ec;
-                        }
-
-                        &.mv {
-                            background-color: #fff2d6;
-                            color: #ffab00;
-                        }
-
-                        &.cash {
-                            @include ftIcon;
-                            font-size: 2.4rem;
-                            background-color: #fff2d6;
-                            color: #ffab00;
-                        }
-                    }
-
-                    .txt {
-                        @include flex(flex-start, flex-start, 0.6rem, column);
-
-                        p {
-                            &:first-of-type {
-                                @include ftMedium;
-                                @include ftSize(regular);
-                                color: $black;
-                            }
-
-                            &:last-of-type {
-                                @include ftRegular;
-                                @include ftSize(small);
-                            }
-                        }
-                    }
-
-                    &.cash {
-                        .txt {
-                            p {
-                                @include ftMedium;
-                                @include ftSize(regular);
-                                color: $black;
-                            }
-                        }
-                    }
-
-                    & + .btn {
-                        padding-top: 2.0rem;
-                        border-top: 1px solid $border-color;
-                    }
-                }
-                
-                .btn-type02 {
-                    background: $white;
-                    border: 1px solid $main-color;
-                    border-radius: 0.5rem;
-                    padding: 0.2rem 1.2rem;
-                    @include flex(center, flex-start);
-                    cursor: pointer;
-                    text-align: center;
-
-                    &:hover {
-                        i {
-                            transform: scale(1.2);
-                        }
-                    }
-
-                    i {
-                        transition: all 0.5s;
-                        display: inline-block;
-                        width: 4.0rem;
-                        height: 4.0rem;
-                        @include ftBold;
-                        @include ftSize(regular);
-                        font-style: normal;
-                        text-align: center;
-                        vertical-align: middle;
-                        line-height: 4.0rem;
-
-                        &.zmdi {
-                            @include ftIcon;
-                            @include ftSize(title);
-                            color: $main-color;
-                        }
-                    }
-                    p {
-                        @include ftMedium;
-                        @include ftSize(small);
-                        color: $black;
-                        width: calc(100% - 4.0rem);
-                    }
-
-                    & + .btn-type02 {
-                        margin-top: 0.8rem;
-                    }
-                }
-
-                .ios-wrap {
-                    width: 55%;
-                    padding-right: 2.0rem;
-                    border-right: 1px solid $border-color;
-                }
-
-                .other-wrap {
-                    width: 45%;
-                    padding-left: 2.0rem;
-                }
-            }
-        }
-
-        .youtube-wrap {
-            @include flex(flex-start, center, 2.0rem, column);
-            width: 100%;
-            padding: 2.4rem;
-            background: $white;
-            border-radius: 0.5rem;
-            box-shadow: $section-shadow;
-
-            .youtube-box {
+        .left {
+            width: 30%;
+            height: 100%;
+            @include flex(center, center, 3rem, column);
+            .music_box {
+                padding: 3rem 3rem;
                 width: 100%;
-                aspect-ratio: 1.78 / 1;
+                background: rgba($white, 0.2);
+                border-radius: 2rem;
+                @include flex(center, flex-start, 6rem, column);
+
+                .cover {
+                    margin: 0 auto;
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    background: url(../images/cover.jpeg) no-repeat center;
+                    background-size: cover;
+                    border-radius: 2rem;
+                }
+
+                .music_player {
+                    font-size: 0;
+                    @include ico_music_start(100%, 52px, $black);
+                    transition: all 0.2s ease-in;
+                }
+            }
+
+            .btn_box {
+                width: 100%;
+                @include flex(center, space-between);
+
+                button {
+                    border-radius: 1.2rem;
+                    background: rgba($white, 0.2);
+                    width: 48%;
+                    height: 6rem;
+                    @include ftBold;
+                    @include ftSize(large);
+                    color: $black;
+                    transition: all 0.3s ease-in;
+                    &:hover {
+                        background: $white;
+                    }
+                    &::before {
+                        @include content;
+                        vertical-align: -4px;
+                        margin-right: 1rem;
+                    }
+
+                    &.btn_cash {
+                        &::before {
+                            @include ico_cash(2rem, 2rem, $black);
+                        }
+                    }
+
+                    &.btn_oneclick {
+                        &::before {
+                            @include ico_music(2rem, 2rem, $black);
+                        }
+                    }
+                }
+            }
+
+            .small_btn_box {
+                width: 100%;
+                @include flex(center, center, 2.0rem);
 
                 a {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
+                    border-radius: 50%;
+                    width: 4rem;
+                    height: 4rem;
+                    font-size: 0;
+                    transition: all 0.3s ease-in;
+                    @include flex(center, center);
+                    &:hover {
+                        background: rgba($white, 0.2);
+                    }
+                    &::before {
+                        @include content;
+                    }
 
-                    .thumbnail {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 1.2rem;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: cover;
+                    &.btn_twitter {
+                        &::before {
+                            @include ico_twitter(2rem, 2rem, $black);
+                        }
+                    }
 
-                        &::after {
-                            content: '';
-                            display: block;
-                            @include centerXY;
-                            @include ico_play(2.8rem, 3.7rem);
-                            box-shadow: rgba(149, 157, 165, 0.2) 0px 0.8rem 20.4rem;
+                    &.btn_youtube {
+                        &::before {
+                            @include ico_youtube(2rem, 2rem, $black);
                         }
                     }
                 }
             }
 
-            .youtube-info-box {
-                width: 100%;
-                
-                .flex-wrap {
-                    @include flex(center, space-between);
-                    margin-bottom: 3.0rem;
+            .copyright {
+                text-align: center;
+                p {
+                    @include ftRegular;
+                    @include ftSize(small);
+                    color: rgba($black, 0.8);
 
-                    div {
-                        @include flex(center, flex-start, 1.0rem);
-                        .youtube-info-text {
-                            @include ftRegular;
-                            @include ftSize(small);
-                            color: $font-gray;
+                    & + p {
+                        margin-top: 0.6rem;
+                    }
+
+                    a {
+                        @include ftRegular;
+                        @include ftSize(small);
+                        color: rgba($black, 0.8);
+                    }
+                }
+            }
+        }
+
+        .right {
+            width: calc(100% - 30% - 5rem);
+            height: 100%;
+            padding: 2rem 2rem;
+            background: rgba($white, 0.2);
+            border-radius: 2rem;
+            overflow: hidden;
+            .strm_img {
+                width: 60%;
+                height: 100%;
+                margin: 0 auto;
+                overflow-y: scroll;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .strm_list {
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+
+                ul {
+                    counter-reset: number 0;
+                    li {
+                        position: relative;
+                        @include flex(center, flex-start);
+                        border-radius: 1rem;
+                        padding: 1.3rem 2rem;
+                        margin-bottom: 0.25rem;
+
+                        &::before {
+                            counter-increment: number 1;
+                            display: block;
+                            content: counter(number);
+                            width: 2rem;
+                            height: 2rem;
+                            @include ftSize(title);
+                            text-align: center;
+                            margin-right: 20px;
                         }
-    
-                        .youtube-count {
-                            @include ftMedium;
-                            @include ftSize(regular);
+
+                        p {
                             color: $black;
-        
+                            @include ftMedium;
+                            @include ftSize(large);
+                        }
+
+                        div {
+                            @include centerY;
+                            right: 2rem;
+                            @include flex(center, flex-end, 2.0rem);
+
+                            .btn_mp3 {
+                                @include ico_mp3(6rem, 2rem, $black);
+                            }
+
+                            .btn_flac {
+                                @include ico_flac(6rem, 2rem, $black);
+                            }
+
+                            .btn_present {
+                                @include ico_present(2rem, 2rem, $black);
+                            }
+                        }
+                        
+                        &:first-of-type {
+                            @include flex(baseline, flex-start, 10px);
+                            &::before {
+                                content: none;
+                            }
+                            p {
+                                @include ftBold;
+                                @include ftSize(2.5rem);
+                            }
                             span {
                                 @include ftBold;
-                                @include ftSize(large);
+                                @include ftSize(regular);
                             }
                         }
 
-                    }
-
-                    .target {
-                        text-align: right;
-                        @include ftMedium;
-                        @include ftSize(regular);
-                        color: $black;
-                    }
-                }
-                .youtube-progress {
-                    position: relative;
-                    width: 100%;
-
-                    .progress-bar {
-                        background: $border-color;
-                        border-radius: 1.2rem;
-                        width: 100%;
-                        height: 1.0rem;
-
-                        .percent {
-                            position: relative;
-                            width: 0;
-                            height: 100%;
-                            border-radius: 1.2rem;
-                            background: linear-gradient(90deg, $point-color2 0%, $main-color 100%);
-                            animation: progressBarAnimation 2s ease-in-out;
+                        &:nth-of-type(2) {
+                            background: $black;
+                            p {
+                                color: $white;
+                            }
 
                             &::before {
-                                content: attr(per);
-                                @include ftSize(regular);
-                                @include ftBold;
-                                position: absolute;
-                                top: -2.0rem;
-                                right: 0;
-                                opacity: 0;
-                                animation: textAnimation 0.05s ease-in-out 2s forwards;
-                                color: $point-color1;
+                                @include content;
+                                @include ico_play(2rem, 2rem, $white);
+                                margin-right: 20px;
+                            }
+
+                            div {
+                                .btn_mp3 {
+                                    background: $white;
+                                }
+
+                                .btn_flac {
+                                    background: $white;
+                                }
+
+                                .btn_present {
+                                    background: $white;
+                                }
                             }
                         }
                     }
-
-                    @keyframes textAnimation {
-                        to {
-                            opacity: 1;
-                        }
-                    }
                 }
             }
         }
 
-        .twitter-wrap {
-            width: 100%;
-            height: 711px;
-            padding: 2.4rem;
-            background: $white;
-            border-radius: 0.5rem;
-            box-shadow: $section-shadow;
-            @include flex(center, flex-start, 2.0rem, column);
+        .mo_bottom {
+            display: none;
+        }
+        
+       
+    }    
 
-            .timeline-box {
+    &.sub {
+        height: auto;
+        min-height: 100vh;
+    
+        .contents {
+            height: auto;
+            min-height: 100vh;
+            padding-bottom: 4.0rem;
+
+            .guide-wrap {
+                position: relative;
                 width: 100%;
-                height: 90%;
-                overflow-y: scroll;
-                @include scroll;
+                max-width: 140rem;
+                height: 100%;
+                margin: 4.0rem auto 0;
             }
-            
-            .hashtag-box {
-                @include flex(center, center, 2.0rem);
-                margin-top: 2.0rem;
-                
-                button {
-                    background: $white;
-                    border: 1px solid $main-color;
-                    border-radius: 0.5rem;
-                    padding: 0.2rem 1.2rem;
-                    @include flex(center, flex-start);
-                    @include ftMedium;
-                    @include ftSize(small);
-                    color: $black;
-
-                    &:hover {
-                        i {
-                            transform: scale(1.2);
-                        }
-                    }
     
-                    i {
-                        transition: all 0.5s;
-                        display: inline-block;
-                        @include ftBold;
-                        @include ftSize(regular);
-                        font-style: normal;
-                        text-align: center;
-                        vertical-align: middle;
-                        color: $main-color;
-                        padding: 1.0rem;
-    
-                        &.zmdi {
-                            @include ftIcon;
-                            @include ftSize(title);
-                            color: $main-color;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .sub {
-        max-width: 98.0rem;
-        position: relative;
-        width: 100%;
-        margin: 0 auto;
-        padding: 8.0rem 0;
-
-        .section-inner {
-            padding-top: 5.0rem;
-            margin: 0 auto;
-
             .section-title {
                 @include flex (flex-end, space-between);
                 margin-bottom: 2.0rem;
-
+    
                 h3 {
-                    @include ftMedium;
-                    @include ftSize(title);
-                    color: $blue-gray;
-                }
-
-                .chart-info-text {
-                    text-align: right;
-                    color: $font-gray;
-                    @include ftSize(regular);
+                    @include ftBold;
+                    @include ftSize(4.0rem);
+                    color: $black;
                 }
             }
-        }
-
-        .tab-menu {
-            @include flex(center, flex-start, 2.0rem);
-            flex-wrap: nowrap;
-            padding: 2.0rem 0;
-            overflow-y: auto;
-            @include noScroll;
-
-            li {
-                cursor: pointer;
-                flex-shrink: 0;
-                @include ftSize(regular);
-                @include ftRegular;
-                border: 1px solid $main-color;
-                padding: 1.0rem 1.4rem;
-                border-radius: 2.6rem;
-                color: $main-color;
-                background: $white;
-
-                &:hover,
-                &.active {
-                    color: $white;
-                    background: $main-color;
-                }
-
-                &.recommend {
-                    &::before {
-                        content: '\f1de';
-                        @include ftIcon;
-                        @include ftSize(title);
-                        width: 2.6rem;
-                        height: 2.6rem;
-                        line-height: 2.6rem;
-                        text-align: center;
-                    }
-                }
-
-                &.melon {
-                    &::before {
-                        @include ico_melon(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.genie {
-                    &::before {
-                        @include ico_genie(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.bugs {
-                    &::before {
-                        @include ico_bugs(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.flo {
-                    &::before {
-                        @include ico_flo(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.vibe {
-                    &::before {
-                        @include ico_vibe(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.kakao {
-                    &::before {
-                        @include ico_kakao(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.youtube {
-                    &::before {
-                        @include ico_youtube(2.6rem, 2.6rem);
-                    }
-                }
-
-
-                &.mubeat {
-                    &::before {
-                        @include ico_mubeat(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.idolchamp {
-                    &::before {
-                        @include ico_idolchamp(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.startplanet {
-                    &::before {
-                        @include ico_startplanet(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.idolplus {
-                    &::before {
-                        @include ico_idolplus(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.superstart {
-                    &::before {
-                        @include ico_superstart(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.mnet {
-                    &::before {
-                        @include ico_mnet(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.broadcast {
-                    &::before {
-                        @include ico_broadcast(2.6rem, 2.6rem);
-                    }
-                }
-
-                &.cheering {
-                    &::before {
-                        @include ico_cheering(2.6rem, 2.6rem);
-                    }
-                }
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    border-radius: 1.2rem;
-                    vertical-align: middle;
-                    margin-right: 0.8rem;
-                }
-            }
-        }
-
-        .tab-box {
-            position: relative;
-            width: 100%;
-            margin: 0 auto;
-            display: none;
-            background: $white;
-
-            &.show {
-                display: block;
-            }
-
-            .guide-tab {
-                @include flex(center, flex-start);
+            
+            .tab-menu {
+                @include flex(center, flex-start, 2.0rem);
                 flex-wrap: nowrap;
-                padding: 1.0rem;
+                padding: 2.0rem 0;
                 overflow-y: auto;
                 @include noScroll;
-
+    
                 li {
-                    flex-shrink: 0;
-                    padding: 1.5rem 2.0rem;
                     cursor: pointer;
+                    flex-shrink: 0;
                     @include ftSize(regular);
                     @include ftRegular;
+                    border: 1px solid rgba($blue-gray,0.5);
+                    padding: 1.0rem 1.4rem;
+                    border-radius: 2.6rem;
                     color: $black;
-                    opacity: 0.7;
-                    border-bottom: 1px solid $border-color;
-
+                    background: $white;
+    
+                    &:hover,
                     &.active {
-                        color: $main-color;
-                        border-bottom: 2px solid $main-color;
+                        color: $white;
+                        background: rgba($blue-gray,0.2);;
+                    }
+    
+                    &.recommend {
+                        &::before {
+                            content: '\f1de';
+                            @include ftIcon;
+                            @include ftSize(title);
+                            width: 2.6rem;
+                            height: 2.6rem;
+                            line-height: 2.6rem;
+                            text-align: center;
+                        }
+                    }
+    
+                    &.melon {
+                        &::before {
+                            @include ico_melon(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.genie {
+                        &::before {
+                            @include ico_genie(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.bugs {
+                        &::before {
+                            @include ico_bugs(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.flo {
+                        &::before {
+                            @include ico_flo(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.vibe {
+                        &::before {
+                            @include ico_vibe(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.kakao {
+                        &::before {
+                            @include ico_kakao(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.youtube {
+                        &::before {
+                            @include ico_youtube_img(2.6rem, 2.6rem);
+                        }
+                    }
+    
+    
+                    &.mubeat {
+                        &::before {
+                            @include ico_mubeat(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.idolchamp {
+                        &::before {
+                            @include ico_idolchamp(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.startplanet {
+                        &::before {
+                            @include ico_startplanet(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.idolplus {
+                        &::before {
+                            @include ico_idolplus(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.superstart {
+                        &::before {
+                            @include ico_superstart(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.mnet {
+                        &::before {
+                            @include ico_mnet(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.broadcast {
+                        &::before {
+                            @include ico_broadcast(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &.cheering {
+                        &::before {
+                            @include ico_cheering(2.6rem, 2.6rem);
+                        }
+                    }
+    
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        border-radius: 1.2rem;
+                        vertical-align: middle;
+                        margin-right: 0.8rem;
                     }
                 }
             }
-
-            .guide-box {
-                width: calc(90% - 4.0rem);
-                padding: 2.0rem;
+    
+            .tab-box {
+                position: relative;
+                width: 100%;
+                margin: 0 auto;
                 display: none;
-                margin: 0 auto;
-
-                &.show {
-                    display: block;
+                background: rgba($white, 0.2);
+                border-radius: 2rem;
+                .guide-tab {
+                    @include flex(center, flex-start);
+                    flex-wrap: nowrap;
+                    padding: 1.0rem;
+                    overflow-y: auto;
+                    @include noScroll;
+    
+                    li {
+                        flex-shrink: 0;
+                        padding: 1.5rem 2.0rem;
+                        cursor: pointer;
+                        @include ftSize(regular);
+                        @include ftMedium;
+                        color: $black;
+                        opacity: 0.7;
+                        border-bottom: 1px solid $border-color;
+    
+                        &.active {
+                            opacity: 1.0;
+                            @include ftBold;
+                            color: $black;
+                            border-bottom: 2px solid $black;
+                        }
+                    }
                 }
-
-                img {
-                    max-width: 915px;
+    
+                .guide-box {
                     width: 100%;
-                    object-fit: contain;
+                    padding: 2.0rem;
+                    display: none;
+                    margin: 0 auto;
+                    text-align: center;
+                    img {
+                        max-width: 915px;
+                        width: 100%;
+                        object-fit: contain;
+                    }
                 }
-            }
-
-            .img-box {
-                width: calc(90% - 4.0rem);
-                padding: 2.0rem;
-                margin: 0 auto;
-
-                img {
-                    max-width: 915px;
+    
+                .img-box {
                     width: 100%;
-                    object-fit: contain;
+                    padding: 2.0rem;
+                    margin: 0 auto;
+                    text-align: center;    
+                    img {
+                        max-width: 915px;
+                        width: 100%;
+                        object-fit: contain;
+                    }
                 }
             }
         }
